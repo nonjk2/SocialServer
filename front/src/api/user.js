@@ -35,16 +35,31 @@ const userLogin = async (loginUser) => {
   return response.data;
 };
 
+const userLoginNaver = async (loginUser) => {
+  const response = await api.post(`/user/login`, loginUser);
+  return response.data;
+};
+
 const userLogOut = async () => {
   await api.post(`/user/logout`);
 };
 
 const updateUser = async (sendData) => {
-  await api.patch(`/user/${sendData.email}/nickname`, {nickname: sendData.nickname});
+  await api.patch(`/user/${sendData.email}/nickname`, { nickname: sendData.nickname });
 };
 
 const deleteUser = async (userEmail) => {
   await api.delete(`/user/${userEmail}`);
 };
 
-export {addUser,getUser,profileChange, getUsers,getAuthToken, updateUser, deleteUser, userLogin, userLogOut};
+export {
+  addUser,
+  getUser,
+  profileChange,
+  getUsers,
+  getAuthToken,
+  updateUser,
+  deleteUser,
+  userLogin,
+  userLogOut,
+};
